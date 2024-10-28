@@ -7,19 +7,50 @@ import torch
 from transformers import GPT2Tokenizer, GPT2Model
 import google.generativeai as genai
 
-# Custom CSS to set background color to black and text to white
+# Custom CSS to set background color to black, text to white, and improve sidebar visibility
 st.markdown("""
     <style>
-    .stApp { background-color: black; color: white; }
+    /* General app styling */
+    .stApp {
+        background-color: black;
+        color: white;
+    }
     .stApp h1, .stApp h2, .stApp h3, .stApp p, .stApp div, .stApp span {
         color: white;
     }
-    .stApp textarea, .stApp input, .stApp select, .stApp button {
+    
+    /* Sidebar styling */
+    section[data-testid="stSidebar"] {
+        background-color: #222222;  /* Dark grey background for sidebar */
+        color: #e0e0e0;  /* Light grey text for good contrast */
+    }
+    section[data-testid="stSidebar"] .css-17eq0hr {
+        color: #e0e0e0;  /* Light grey text in sidebar */
+    }
+    
+    /* Text areas, inputs, buttons styling */
+    textarea, input, select, button {
         color: white;
         background-color: #333;
     }
+    
+    /* Labels and other input elements in sidebar */
+    .sidebar-content {
+        color: #e0e0e0;  /* Ensure that text inside the sidebar is visible */
+    }
+    
+    /* Radio buttons and checkboxes */
+    input[type="radio"] + div, input[type="checkbox"] + div {
+        color: #e0e0e0;
+    }
+
+    /* Uploaded file background in sidebar */
+    .css-16huue1 {
+        background-color: #444444 !important;  /* Medium grey background for uploaded files */
+    }
     </style>
 """, unsafe_allow_html=True)
+
 
 # Initialize models and API configuration only once
 @st.cache_resource
