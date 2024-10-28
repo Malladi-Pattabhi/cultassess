@@ -7,6 +7,20 @@ import torch
 from transformers import GPT2Tokenizer, GPT2Model
 import google.generativeai as genai
 
+# Custom CSS to set background color to black and text to white
+st.markdown("""
+    <style>
+    .stApp { background-color: black; color: white; }
+    .stApp h1, .stApp h2, .stApp h3, .stApp p, .stApp div, .stApp span {
+        color: white;
+    }
+    .stApp textarea, .stApp input, .stApp select, .stApp button {
+        color: white;
+        background-color: #333;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 # Initialize models and API configuration only once
 @st.cache_resource
 def load_embedding_model():
